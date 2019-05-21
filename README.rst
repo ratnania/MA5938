@@ -20,6 +20,8 @@ I. Computer Aided Design
 
    * `3- B-Splines curves <http://nbviewer.jupyter.org/github/ratnania/MA5938/blob/master/ch1/B-Splines_curves.ipynb>`_
 
+   * `4- B-Splines Fundamental geometric operations <http://nbviewer.jupyter.org/github/ratnania/MA5938/blob/master/ch1/B-Splines_Fundamental_geometric_operations.ipynb>`_
+
 II. Approximation theory
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
