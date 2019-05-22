@@ -105,7 +105,7 @@ def homothetic_curve(knots, P, alpha, center=[0.,0.]):
     return knots, Q
 
 # ==========================================================
-def plot_curve(knots, degree, P, color='b', label='P'):
+def plot_curve(knots, degree, P, color='b', label='P', with_ctrl_pts=True):
     n      = len(knots) - degree - 1
 
     nx = 101
@@ -118,9 +118,10 @@ def plot_curve(knots, degree, P, color='b', label='P'):
     plt.plot(Q[:,0], Q[:,1], '-'+color)
     plt.plot(P[:,0], P[:,1], '--ok', linewidth=0.7)
 
-    for i in range(0, n):
-        x,y = P[i,:]
-        plt.text(x+0.05,y+0.05,'$\mathbf{'+label+'}_{' + str(i) + '}$')
+    if with_ctrl_pts:
+        for i in range(0, n):
+            x,y = P[i,:]
+            plt.text(x+0.05,y+0.05,'$\mathbf{'+label+'}_{' + str(i) + '}$')
 
 # ==========================================================
 def curve_insert_knot(knots, degree, P, t, times=1):
@@ -160,7 +161,7 @@ def curve_insert_knot(knots, degree, P, t, times=1):
 
     # insert t times
     for j in range(1, times+1):
-        l = span - degree + 1
+        l = span - degree + j
         for i in range(0, degree-j-m+1):
             alpha = (t-knots[l+i])/(knots[i+span+1] - knots[l+i])
             R[i] = alpha*R[i+1] + (1. - alpha)*R[i]
